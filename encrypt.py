@@ -38,7 +38,7 @@ def AES_MixColumns(state):
     for i in range(len(state)): state[i] = buffer[i]
 
 
-def AES_Encrypt_Block(message, key, expandedKey, roundNumber):
+def AES_Encrypt_Block(message, expandedKey, roundNumber):
     state = bytearray(len(message))
     for i in range(len(message)):
         state[i] = message[i]
@@ -66,5 +66,5 @@ def AES_Encrypt(message, key, expandedKey = None, roundNumber = 10):
     
     result = bytearray()
     for i in range(0, len(message), 16):
-        result += AES_Encrypt_Block(message[i:i + 16], key, expandedKey, roundNumber)
+        result += AES_Encrypt_Block(message[i:i + 16], expandedKey, roundNumber)
     return result
