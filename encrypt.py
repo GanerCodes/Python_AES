@@ -54,7 +54,6 @@ def AES_Encrypt_Block(message, expandedKey, roundNumber):
     AES_SubBytes(state)
     AES_ShiftRows(state)
     AES_AddRoundKey(state, expandedKey[160:])
-    
     return state
 
 def AES_Encrypt(message, key, expandedKey = None, roundNumber = 10):
