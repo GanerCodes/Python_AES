@@ -8,8 +8,10 @@ from decrypt import *
 
 if __name__ == "__main__":
     message = bytearray(b"This is a message we will encrypt with AES!")
+    print("Text u8", list(map(int, message)))
     key = bytearray(list(range(1, 17)))
     enc = AES_Encrypt(message, key)
-    print(enc.hex())
+    print("Enc hex", enc.hex())
+    print("Enc u8", list(map(int, enc)))
     dec = AES_Decrypt(enc, key)
-    print(dec.decode())
+    print("decoded", dec.decode())
